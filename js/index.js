@@ -1,19 +1,38 @@
-const btnAddTodo = document.querySelector('.add-todo');
-btnAddTodo.addEventListener('click', addTodo);
-const todoTextInput = document.querySelector('.todo-text');
-todoTextInput.addEventListener('keypress', inputKeyPress);
+const btnDigits = document.querySelectorAll('.digits button');
+btnDigits.forEach(digit => digit.addEventListener('click', digitPressed));
 
-function inputKeyPress(event) {
-    if (event.keyCode === 13) {
-        addTodo();
-    }
+const display = document.querySelector('.display');
+
+function digitPressed(ev) {
+    display.value += ev.target.innerText;
 }
 
-function addTodo() {
-    const todoTextInput = document.querySelector('.todo-text');
-    const text = todoTextInput.value;
-    const list = document.querySelector('.todolist');
-    list.innerHTML += `<li>${text}</li>`;
-    todoTextInput.value = '';
+const btnOper = document.querySelectorAll('.opers button');
+btnOper.forEach(digit => digit.addEventListener('click', opersPressed));
+
+function opersPressed(ev) {
+    display.value += ev.target.innerText;
+}
+
+const btnEq = document.querySelector('.eq');
+btnEq.addEventListener('click', eqPressed);
+
+function eqPressed() {
+    display.value = eval(display.value);
+}
+
+const btnClear = document.querySelector('.clear');
+btnClear.addEventListener('click', clearPressed);
+
+function clearPressed() {
+    display.value = "";
+}
+
+const btnBack = document.querySelector('.back');
+btnBack.addEventListener('click', backPressed);
+
+function backPressed() {
+    let exp = display.value;
+    display.value = exp.substring(0,exp.length-1);
 }
 

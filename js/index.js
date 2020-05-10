@@ -7,12 +7,14 @@ function digitPressed(ev) {
     display.value += ev.target.innerText;
 }
 
-const btnOper = document.querySelectorAll('.opers button');
-btnOper.forEach(digit => digit.addEventListener('click', opersPressed));
+const btnOpers = document.querySelectorAll('.opers button');
+btnOpers.forEach( digit => digit.addEventListener('click', operPressed));
 
-function opersPressed(ev) {
-    display.value += ev.target.innerText;
+function operPressed(ev) {
+   display.value += ev.target.innerText;
 }
+
+const btnSqrt = 
 
 const btnEq = document.querySelector('.eq');
 btnEq.addEventListener('click', eqPressed);

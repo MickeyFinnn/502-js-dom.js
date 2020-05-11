@@ -14,7 +14,6 @@ function operPressed(ev) {
    display.value += ev.target.innerText;
 }
 
-const btnSqrt = 
 
 const btnEq = document.querySelector('.eq');
 btnEq.addEventListener('click', eqPressed);
@@ -38,3 +37,14 @@ function backPressed() {
     display.value = exp.substring(0,exp.length-1);
 }
 
+const btnZero = document.querySelector(".zero");
+btnZero.addEventListener("click", divByZero);
+
+function divByZero() {
+  if (
+    display.value ===
+    display.value.substring(0, display.value.length - 2) + "/0"
+  ) {
+    alert("EROR404");
+  }
+}
